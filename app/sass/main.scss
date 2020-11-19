@@ -44,10 +44,16 @@ $Roboto: 'Roboto', sans-serif;
 @mixin header-text {
 	font-family: $Roboto;
 	font-weight: 500;
-	font-size: 10px;
+	font-size: 14px;
 	color: $color-white;
 	text-transform: uppercase;
 	transition: .3s;
+	@media (max-width: 1720px) {
+		font-size: 12px;
+	}
+	@media (max-width: 1350px) {
+		font-size: 10px;
+	}
 	@media (max-width: 1200px) {
 		font-size: 9px;
 	}
@@ -79,6 +85,28 @@ $Roboto: 'Roboto', sans-serif;
 	background: no-repeat center center;
 	@media (max-width: 992px) {
 		display: none;
+	}
+}
+
+@mixin vertical-lines {
+	.lines-block {
+		width: 100%;
+		height: 100%;
+		margin: 0 auto;
+		position: absolute;
+		top: -15px;
+		left: 0px;
+		z-index: -1;
+		display: flex;
+		justify-content: space-between;
+		@media (max-width: 768px ) {
+			display: none;
+		}
+		hr {
+			height: 100%;
+			width: 1px;
+			border-right: 1px solid rgba(223, 223, 223, 0.5);
+		}
 	}
 }
 
@@ -534,6 +562,12 @@ a, a:hover, a:focus {
 						bottom: -22px;
 					}
 				}
+				.countSlides-2 {
+					left: 110px;
+				}
+				.countSlides-3 {
+					left: 190px;
+				}
 			}
 		}
 	}	
@@ -541,7 +575,7 @@ a, a:hover, a:focus {
 		position: absolute;
 		bottom: 160px;
 		right: 0;
-		width: 270px;
+		width: 320px;
 		height: 210px;
 		@media (max-width: 1200px) {
 			bottom: 150px;
@@ -556,6 +590,7 @@ a, a:hover, a:focus {
 		.slide-nav {
 			height: 210px;
 			height: 210px;
+			margin-right: 35px;
 			background-position: center center;
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -595,10 +630,24 @@ a, a:hover, a:focus {
 	}
 }
 
+.container-services {
+	width: 1312px;
+	margin: 0 auto;
+	padding: 81px 0 219px;
+	position: relative;
+	@media (max-width: 1600px ) {
+		width: 90%;
+	}
+	@include vertical-lines;
+	.lines-block {
+		top: -18px;
+	}
+}
+
 .services {
 	width: 100%;
-	padding: 81px 0 219px;
 	border-bottom: 2px solid #000;
+
 	@media (max-width: 768px) {
 		padding-bottom: 81px;
 	}
@@ -608,9 +657,11 @@ a, a:hover, a:focus {
 	.services__header {
 		width: 1312px;
 		margin: 0 auto 12px;
+		position: relative;
 		@media (max-width: 1600px ) {
 			width: 90%;
 		}
+
 		.img-section {
 			@media (max-width: 576px ) {
 				text-align: center;
@@ -895,6 +946,7 @@ a, a:hover, a:focus {
 
 .portfolio {
 	margin-top: 20px;
+	position: relative;
 	.tabs__nav {
 		display: flex;
 		.tabs__section {
@@ -902,8 +954,9 @@ a, a:hover, a:focus {
 			display: flex;
 			align-items: center;
 			padding-left: 21px;
-			@media (max-width: 576px) {
+			@media (max-width: 1600px) {
 				justify-content: center;
+				padding-left: 0;
 			}
 			.tabs__link {
 				font: {
@@ -985,23 +1038,41 @@ a, a:hover, a:focus {
 	}
 }
 
+.container-portfolio {
+	width: 1312px;
+	margin: 0 auto;
+	position: relative;
+	@media (max-width: 1600px ) {
+		width: 90%;
+	}
+	@include vertical-lines;
+	.lines-block {
+		top: -35px;
+	}
+}
+
 .clients {
-	margin-top: 100px;
-	@media (max-width: 992px) {
-		margin-top: 90px;
-	}
-	@media (max-width: 768px) {
-		margin-top: 70px;
-	}
 	&__container {
 		width: 75%;
+		width: 1312px;;
 		margin: 0 auto;
-		@media (max-width: 1200px) {
+		position: relative;
+		padding-top: 100px;
+		padding-bottom: 40px;
+		@media (max-width: 1600px) {
 			width: 90%;
+		}
+		@media (max-width: 992px) {
+			padding-top: 90px;
+		}
+		@media (max-width: 768px) {
+			padding-top: 70px;
 		}
 		@media (max-width: 576px) {
 			width: 96%;
 		}
+		@include vertical-lines;
+		
 		.clients__title {
 			font-size: 40px;
 			width: 100%;
@@ -1087,7 +1158,6 @@ a, a:hover, a:focus {
 }
 
 .contacts {
-	margin-top: 40px;
 	position: relative;
 	width: 100%;
 	height: 840px;

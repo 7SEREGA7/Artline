@@ -74,12 +74,22 @@ $(document).ready(function() {
     arrows: false,
     asNavFor: '.slider-for',
     dots: false,
-    // centerMode: true,
-    focusOnSelect: true
+    centerMode: true,
+    focusOnSelect: true,
+    centerPadding: '30px'
+      // swipeToSlide: false,
   });
 
   $(".slider-for").on("afterChange", function(event, slick, currentSlide, nextSlide){
-    $(".countSlides").text(`0${currentSlide + 1}`);
+    if (currentSlide === 1) {
+      $(".countSlides-2").text(`0${currentSlide + 1}`);
+    }
+    else if (currentSlide === 2) {
+      $(".countSlides-3").text(`0${currentSlide + 1}`);
+    }
+    else {
+      $(".countSlides").text(`0${currentSlide + 1}`);
+    }
   });
 ////>>> SLIDER <<<///
 
